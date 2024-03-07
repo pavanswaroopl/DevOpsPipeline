@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopspipeline
+  labels:
+    app: devopspipeline
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devopspipeline
+  template:
+    metadata:
+      labels:
+        app: devopspipeline
+    spec:
+      containers:
+      - name: devopspipeline
+        image: lalith425/devopspipeline:76
+        ports:
+        - containerPort: 8080 
