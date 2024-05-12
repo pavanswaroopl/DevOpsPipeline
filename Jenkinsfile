@@ -61,6 +61,8 @@ pipeline {
                     git config --global --add safe.directory /var/lib/jenkins/workspace/cicd-project
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
+                    git status
+                    git diff
                     git add manifest/deployment.yml
                     git config user.email "pavanswaroop.l@gmail.com"
                     git config user.name "pavanswaroopl"
