@@ -44,6 +44,12 @@ pipeline {
         }
       }
     }
+    stage('Checkout') {
+            steps {
+                // Checkout the Git repository into the workspace
+                git credentialsId: 'github', url: 'https://github.com/pavanswaroopl/DevOpsPipeline.git'
+            }
+    }
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "DevOpsPipeline"
