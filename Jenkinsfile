@@ -56,6 +56,7 @@ pipeline {
                  sh 'pwd'
                   sh 'ls -al'
                 sh '''
+                    git init
                     git config user.email "pavanswaroop.l@gmail.com"
                     git config user.name "pavanswaroopl"
                     git config --global --add safe.directory /var/lib/jenkins/workspace/cicd-project
