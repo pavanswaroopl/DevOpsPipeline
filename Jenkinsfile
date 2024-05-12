@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'lalith425/lalith-doc-mav-jdj:5.0'
+      image 'pavanswaroopl/djmg:1'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' 
     }
   }
@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://100.25.30.145:9000"
+        SONAR_URL = "http://54.90.17.231:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "lalith425/devopspipeline:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "pavanswaroopl/devopspipeline:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('dockerCredentials')
       }
@@ -47,7 +47,7 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "DevOpsPipeline"
-            GIT_USER_NAME = "lalith425"
+            GIT_USER_NAME = "pavanswaroopl"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
@@ -61,8 +61,8 @@ pipeline {
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
                     git add manifest/deployment.yml
-                    git config user.email "lalithkumarrajendran08@gmail.com"
-                    git config user.name "lalith425"
+                    git config user.email "pavanswaroop.l@gmail.com"
+                    git config user.name "pavanswaroopl"
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
                 '''

@@ -16,7 +16,7 @@ import com.example.devopsPipeline.service.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/stackUnderflow")
+@RequestMapping("/cicddatabase")
 @Slf4j
 public class CustomerController {
 

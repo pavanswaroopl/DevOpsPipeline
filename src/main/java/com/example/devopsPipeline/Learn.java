@@ -30,7 +30,7 @@ public void setName(String name) {
     public static void main(String[] args) {
         int k=0;
         Application application = new Application();
-       System.out.println("Lal");
+       System.out.println("Pav");
        Learn student = application.createAGuy("dd");
 
    System.out.println(student.getName());
@@ -38,7 +38,7 @@ public void setName(String name) {
 
  public  void lll(String args) {
     Application application = new Application();
-   System.out.println("Lal");
+   System.out.println("Pav");
    application.createAGuy();
 
 
