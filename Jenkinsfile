@@ -44,7 +44,7 @@ pipeline {
         }
       }
     }
-    stage('Checkout') {
+    stage('Checkout again') {
             steps {
                 // Checkout the Git repository into the workspace
                 git credentialsId: 'github', url: 'https://github.com/pavanswaroopl/DevOpsPipeline.git'
