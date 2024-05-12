@@ -56,13 +56,12 @@ pipeline {
                  sh 'pwd'
                   sh 'ls -al'
                 sh '''
-                    git init
-                    git config --global --add safe.directory /var/lib/jenkins/workspace/DevOpsPipeline
+                    git config user.email "pavanswaroop.l@gmail.com"
+                    git config user.name "pavanswaroopl"
+                    git config --global --add safe.directory /var/lib/jenkins/workspace/cicd-project
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
                     git add manifest/deployment.yml
-                    git config user.email "pavanswaroop.l@gmail.com"
-                    git config user.name "pavanswaroopl"
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
                 '''
