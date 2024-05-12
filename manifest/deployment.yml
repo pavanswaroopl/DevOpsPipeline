@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: devopspipeline
-        image: pavanswaroopl/devopspipeline:76
+        image: pavanswaroopl/devopspipeline:replaceImageTag
         ports:
         - containerPort: 8080 
