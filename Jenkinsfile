@@ -58,7 +58,6 @@ pipeline {
                   sh 'ls -al'
                 sh '''
                     git config --global --add safe.directory /var/lib/jenkins/workspace/DevOpsPipeline
-                    git checkout main
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
                     cat manifest/deployment.yml
