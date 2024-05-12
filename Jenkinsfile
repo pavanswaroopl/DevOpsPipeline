@@ -51,12 +51,8 @@ pipeline {
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
-              dir("${WORKSPACE}") {
-              script{
-                 sh 'pwd'
-                  sh 'ls -al'
                 sh '''
-                    git init
+                 
                     git config user.email "pavanswaroop.l@gmail.com"
                     git config user.name "pavanswaroopl"
                     git config --global --add safe.directory /var/lib/jenkins/workspace/cicd-project
@@ -66,8 +62,6 @@ pipeline {
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
                 '''
-            }
-            }
         }
         }
     }
@@ -80,3 +74,4 @@ pipeline {
         }
     }
 }
+
