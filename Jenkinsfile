@@ -60,7 +60,7 @@ pipeline {
                     git init
                     git config --global --add safe.directory /var/lib/jenkins/workspace/DevOpsPipeline
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
+                    sed -i 's/replaceImageTag/${BUILD_NUMBER}/g' manifest/deployment.yml
                     cat manifest/deployment.yml
                     git add manifest/deployment.yml
                     git config user.email "pavanswaroop.l@gmail.com"
