@@ -51,7 +51,7 @@ pipeline {
             GIT_USER_NAME = "pavanswaroopl"
         }
         steps {
-            withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {`
+            withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
               dir("${WORKSPACE}") {
               script{
                  sh 'pwd'
