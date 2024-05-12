@@ -58,7 +58,7 @@ pipeline {
                   sh 'ls -al'
                 sh '''
                     git init
-                    git config --global --add safe.directory /var/lib/jenkins/workspace/cicd-project
+                    git config --global --add safe.directory /var/lib/jenkins/workspace/DevOpsPipeline
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yml
                     git status
