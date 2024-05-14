@@ -1,7 +1,3 @@
-Certainly! It seems the formatting was lost. Let me correct that for you:
-
----
-
 **Building a Jenkins Pipeline for a Java Application with Maven, SonarQube, Argo CD, Helm, and Kubernetes**
 
 **Pipeline Overview**
